@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   StreetPulse - On-Ground Brand Activations
+  </title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   * {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #000000;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 200vh; 
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+a {
+    color: #bc8202;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #bc8202;
+}
+
+button.cta-button {
+    background-color: #bc8202;
+    color: #f9f9f9;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+button.cta-button:hover {
+    background-color:  #7e5805;
+    transform: translateY(-2px);
+}
+
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: transparent; 
+    padding: 3px 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.navbar .logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #f9f9f9; 
+    transition: color 0.3s ease;
+    margin-right: auto; 
+}
+
+.navbar .nav-menu {
+    display: flex;
+    justify-content: center; 
+    flex-grow: 0; 
+}
+
+.navbar nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar nav ul li {
+    margin: 0 15px; 
+}
+
+.navbar nav ul li a {
+    color: #f9f9f9; 
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 5px; 
+    transition: color 0.3s ease;
+}
+
+.navbar nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #bc8202; 
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+.navbar nav ul li a:hover::after {
+    width: 100%;
+}
+
+.navbar .nav-cta {
+    margin-left: auto; 
+}
+
+.navbar .menu-toggle {
+    display: none; 
+    flex-direction: column;
+    cursor: pointer;
+    margin-left: 20px; 
+}
+
+.navbar .menu-toggle span {
+    height: 3px;
+    width: 25px;
+    background-color: #f9f9f9; 
+    margin-bottom: 5px;
+    border-radius: 2px;
+    transition: background-color 0.3s ease;
+}
+
+
+.navbar.scrolled {
+    background: linear-gradient(90deg, #bc8202 ,  #b2a961, #ffffff); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+
+.navbar.scrolled .logo,
+.navbar.scrolled .nav-menu a,
+.navbar.scrolled .menu-toggle span {
+    color: #f9f9f9; 
+}
+
+
+
+@media (max-width: 992px) { 
+    .navbar .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 70px; 
+        left: 0;
+        background-color: #1f311c; 
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+        align-items: center; 
+    }
+
+    .navbar .nav-menu.active {
+        display: flex;
+    }
+
+    .navbar nav ul {
+        flex-direction: column;
+        text-align: center;
+        width: 100%; 
+    }
+
+    .navbar nav ul li {
+        margin: 10px 0;
+    }
+
+    .navbar nav ul li a {
+        color: #f9f9f9; 
+        font-size: 1.1rem;
+    }
+
+    .navbar .nav-cta {
+        display: none; 
+    }
+    .navbar .menu-toggle {
+        display: flex;
+    }
+}
+
+
+
+.hero-section {
+   background: url('StreetPulseBackground.png') no-repeat center center/cover;
+    
+    padding-top: 80px;  
+    height: calc(100vh + 80px);  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #f9f9f9;
+    position: relative;
+    box-sizing: border-box;  
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(3, 12, 8, 0.2); 
+    z-index: 1;
+}
+
+.hero-content {
+    z-index: 2;
+    max-width: 900px;
+    padding: 20px;
+    position: relative;  
+    top: -50px;  
+}
+.hero-content .headline {
+    font-size: 2.4rem;  
+    margin-bottom: 25px;
+    line-height: 1.2;
+    color: #f9f9f9;
+    font-weight: 700;
+}
+
+.hero-content .subheadline {
+    font-size: 1.6rem;
+    margin-bottom: 50px;
+    color: #f4cc77; 
+    font-weight: 400;
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-ctas .cta-button {
+    margin: 0 15px;
+    min-width: 200px; 
+}
+
+.hero-ctas .secondary-cta {
+    background-color: transparent;
+    border: 2px solid #bc8202;
+    color: #bc8202;
+}
+.hero-ctas .secondary-cta:hover {
+    background-color:#bc8202;
+    color: #f9f9f9;
+    transform: translateY(-2px);
+}
+
+
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animated-text {
+    opacity: 0; 
+    transform: translateY(20px); 
+    animation: fadeSlideIn 1s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+}
+
+.headline { animation-delay: 0.5s; }
+.subheadline { animation-delay: 1s; }
+.hero-ctas .primary-cta { animation-delay: 1.5s; }
+.hero-ctas .secondary-cta { animation-delay: 1.7s; }
+
+
+
+.about-us-section {
+    position: relative;
+    padding: 20px 20px; 
+    background-color: #f9f9f9; 
+    color: #030c08;
+    overflow: hidden; 
+    margin-bottom: 20px;
+}
+
+.about-us-section .section-intro {
+    max-width: 800px;
+    margin: 0 auto 50px auto; 
+    text-align: center;
+}
+
+.about-us-section .section-intro h2 {
+    font-size: 2.4rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.grid-card {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    border-top: 6px solid #bc8202; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0; 
+    transform: translateY(20px);
+}
+
+.grid-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.grid-card h3 {
+    color: #bc8202;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.about-grid .grid-card:nth-child(1).is-visible { transition-delay: 0.1s; }
+.about-grid .grid-card:nth-child(2).is-visible { transition-delay: 0.2s; }
+.about-grid .grid-card:nth-child(3).is-visible { transition-delay: 0.3s; }
+.about-grid .grid-card:nth-child(4).is-visible { transition-delay: 0.4s; }
+
+
+
+.angled-divider-top, .angled-divider-bottom {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 80px; 
+    z-index: 1;
+}
+
+.angled-divider-top {
+    top: 0;
+    background: #f9f9f9; 
+    transform: skewY(-2deg);
+    transform-origin: top left;
+}
+
+.angled-divider-bottom {
+    bottom: 0;
+    background: #f9f9f9; 
+    transform: skewY(2deg);
+    transform-origin: bottom right;
+}
+
+
+.about-us-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+
+.services-section {
+    background-color:#f0f1e2f8; 
+    padding: 10px 0;
+    color: #030c08;
+}
+
+.services-section h2 {
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    
+    margin-bottom: 50PX;
+}
+
+.service-card {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    border: 2px solid #bbc0c2; 
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.service-card h3 {
+    color: #1f311c; 
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg,#f9f9f9,#f4cc77 ,#bc8202);
+    z-index: -1;
+    border-radius: 10px;
+    opacity: 0;
+    filter: blur(8px); 
+    transition: opacity 0.5s ease, filter 0.5s ease;
+}
+.service-card:hover::before {
+    opacity: 1;
+    filter: blur(4px); 
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    border-color: transparent;
+}
+
+
+
+
+.street-sales-section {
+    padding: 80px 0; 
+    background-color: #f0f1e2f8; 
+    color: #030c08; 
+    text-align: center;
+    position: relative;
+}
+
+
+.inner-street-sales-block {
+    position: relative;
+    background: url('MarketingBackground.jpeg') no-repeat center center/cover;
+    padding: 50px 0;
+    margin: 0 auto;
+    max-width: 1000px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    border-radius: 8px;
+}
+
+.inner-street-sales-block .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(61, 79, 71, 0.054); 
+    z-index: 1;
+}
+
+.inner-street-sales-block .container {
+    position: relative;
+    z-index: 2;
+}
+
+.street-sales-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(3, 12, 8, 0.4); 
+    z-index: 1;
+}
+
+.street-sales-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+
+.street-sales-section .big-headline,
+.street-sales-section .description,
+.how-we-do-it-list .list-item,
+.street-sales-section .tagline {
+    color: #ffffff; 
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); 
+}
+
+.street-sales-section .big-headline {
+    font-size: 2.6rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.street-sales-section .description {
+    font-size: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+}
+
+.how-we-do-it-list {
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+    text-align: left;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.how-we-do-it-list .list-item {
+    display: flex;
+    align-items:center;
+    font-size: 1.4rem;
+}
+
+.how-we-do-it-list .list-item .icon {
+    font-size: 1.6rem;
+    color: #ffcc00; 
+    margin-right: 15px;
+    min-width: 30px;
+    line-height: 1;
+    display: flex;        
+    align-items: center;
+}
+
+.street-sales-section .tagline {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 50px;
+    font-weight: 300;
+}
+
+.street-sales-ctas .cta-button {
+    margin: 0 15px;
+    min-width: 220px;
+    margin-bottom: 50px;
+}
+
+
+
+.gallery-section {
+    padding: 10px 0;
+    background-color: #f9f9f9;
+    color: #030c08;
+    margin-bottom: 30px;
+}
+
+.gallery-section h2 {
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+.image-carousel {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    grid-auto-rows: minmax(150px, auto); 
+    gap: 25px;
+    padding-bottom: 20px;
+}
+
+.carousel-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%; 
+    display: block;
+    object-fit: cover;
+    transition: transform 0.4s ease-out;
+}
+
+.carousel-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(188, 130, 2, 0.6); 
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f9f9f9;
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+.carousel-item:hover img {
+    transform: scale(1.08); 
+}
+
+.carousel-item .overlay {
+    opacity: 0; 
+}
+.carousel-item:hover .overlay {
+    opacity: 0; 
+}
+
+
+.case-studies-clients-section {
+    padding: 10px 0;
+    position: relative;
+    overflow: hidden;
+    background-color: #f0f1e2f8; 
+    color: #030c08;
+    text-align: center; 
+}
+
+  .glassmorphism-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(240, 241, 226, 0.2); 
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(240, 241, 226, 0.1); 
+}
+
+.case-studies-clients-section .container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.case-studies-clients-section h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    
+    margin-bottom: 30px;
+}
+
+
+.coming-soon-button {
+    background: linear-gradient(to right, #bc8202 ,  #b2a961, #ffffff); 
+    background-size: 200% auto; 
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px; 
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    transition: all 0.1s ease-in-out; 
+
+    
+    animation: gradientAnimation 4s ease infinite alternate; 
+}
+
+.coming-soon-button:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); 
+    transform: translateY(-2px); 
+}
+
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%; 
+    }
+    100% {
+        background-position: 100% 50%; 
+    }
+}
+
+
+
+.contact-us-section {
+    padding: 10px 0;
+    position: relative;
+    overflow: hidden;
+    color: #030c08; 
+    background-color: #f9f9f9; 
+}
+
+.contact-us-section .container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.contact-us-section h2 {
+    font-size: 2.4rem;
+    margin-bottom: 40px;
+    color: #030c08; 
+    font-weight: 700;
+}
+.contact-details-wrapper { 
+    display: flex;
+    justify-content: center; 
+    margin-bottom: 60px;
+}
+
+.contact-details {
+    flex: 0 0 auto;
+    min-width: 320px;
+    background-color: #f9f9f9; 
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); 
+    
+    text-align: left;
+    width: 100%;
+    max-width: 650px; 
+}
+.contact-details p, .contact-details a {
+    font-size: 1.1rem;
+    color: #030c08; 
+}
+.contact-details strong {
+    color: #bc8202; 
+}
+
+.social-media {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    
+    background-color: #3a786b;
+    color: #f9f9f9; 
+    border-radius: 50%;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.social-icon:hover {
+    transform: translateY(-5px) scale(1.1);
+    background-color: #bc8202; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+
+.footer {
+    background-color: #030c08;
+    color: #f9f9f9;
+    padding: 10px 0 25px 0;
+    text-align: center;
+    position: relative;
+    font-size: 0.95rem;
+}
+
+.footer a {
+    color: #c0deec;
+    margin: 0 10px;
+}
+
+.footer a:hover {
+    color: #bc8202;
+}
+
+
+.footer .container {
+    position: relative;
+    z-index: 2;
+}
+
+
+
+@media (max-width: 992px) {
+    .navbar .container {
+        justify-content: space-between; 
+    }
+    .hero-content .headline {
+        font-size: 2.2rem;
+    }
+    .hero-content .subheadline {
+        font-size: 1.4rem;
+    }
+    .about-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .street-sales-section .big-headline {
+        font-size: 2.8rem;
+    }
+    .contact-details {
+        width: 100%;
+        max-width: 500px;
+    }
+    .carousel-item {
+        width: 90vw; 
+        height: 250px;
+    }
+    .carousel-item img {
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar .logo {
+        font-size: 1.6rem;
+    }
+    .hero-content .headline {
+        font-size: 1.8rem;
+    }
+    .hero-content .subheadline {
+        font-size: 1.2rem;
+    }
+    .hero-ctas {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .hero-ctas .cta-button {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .about-us-section, .services-section, .street-sales-section, .gallery-section, .case-studies-clients-section, .contact-us-section {
+        padding: 60px 0;
+    }
+    .about-grid {
+        grid-template-columns: 1fr; 
+    }
+    .services-grid {
+        grid-template-columns: 1fr; 
+    }
+    .street-sales-section .big-headline {
+        font-size: 2rem;
+    }
+    .contact-details {
+        padding: 30px;
+    }
+    .social-media {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar .logo {
+        font-size: 1.4rem;
+    }
+    .hero-content .headline {
+        font-size: 1.5rem; 
+    }
+    .hero-content .subheadline {
+        font-size: 1rem;
+    }
+    .hero-ctas .cta-button {
+        font-size: 0.9rem;
+    }
+    .about-us-section .section-intro h2,
+    .services-section h2,
+    .street-sales-section .big-headline,
+    .gallery-section h2,
+    .case-studies-clients-section h2,
+    .contact-us-section h2 {
+        font-size: 2rem;
+    }
+    .contact-details p, .contact-details a {
+        font-size: 1rem;
+    }
+    .social-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 0.9rem;
+    }
+}
+
+
+@media (max-width: 992px) { 
+    .navbar .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 70px; 
+        left: 0;
+        background-color: #1f311c; 
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+        align-items: center; 
+    }
+
+    .navbar .nav-menu.active {
+        display: flex;
+    }
+
+    .navbar nav ul {
+        flex-direction: column;
+        text-align: center;
+        width: 100%; 
+    }
+
+    .navbar nav ul li {
+        margin: 10px 0;
+    }
+
+    .navbar nav ul li a {
+        color: #f9f9f9; 
+        font-size: 1.1rem;
+    }
+
+    .navbar .nav-cta {
+        display: none; 
+    }
+    .navbar .menu-toggle {
+        display: flex;
+    }
+}
+  </style>
+ </head>
+ <body>
+  
+    <header class="navbar" id="navbar">
+        <div class="container">
+            <div class="logo">StreetPulse</div>
+            <nav class="nav-menu">
+                <ul class="menu-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#street-sales">Street Sales</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#case-studies">Case Studies</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="cta-button nav-cta">Book Activation</button>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section" id="home">
+            <div class="hero-content">
+                <h1 class="headline animated-text">
+                    Turning Streets into Stages. People into Participants. <br>Brands into Experiences.
+                </h1>
+                <p class="subheadline animated-text">We bring your brand to life on ground, on point and on fire.</p>
+                <div class="hero-ctas">
+                    <button class="cta-button primary-cta">Book Your Brand Activation</button>
+                    <button class="cta-button secondary-cta">Let’s Collaborate</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-us-section" id="about">
+            <div class="angled-divider-top"></div>
+            <div class="container">
+                <div class="section-intro fade-in-section">
+                    <h2 style="color: #1f311c;">Who We Are:</h2>
+                    <p>We are Indian's most dynamic on-ground activation startup, turning ideas into immersive, real-world brand experiences. Whether it's college campuses, corporate parks, malls, or street corners, we make your brand unmissable.</p>
+                    <h2 style="color: #1f311c;">Our Mission:</h2>
+                    <p>To revolutionize physical brand engagement through creativity, tech integration, and an unmatched hustle spirit.</p>
+                </div>
+
+                <h2 style="color: #1f311c; text-align: center; margin-top: 40px;">Why Us:</h2>
+                <div class="about-grid">
+                    <div class="grid-card fade-in-section" style="border-top-color: #bc8202;">
+                        <h3>Local Market Understanding</h3>
+                        <p>Deep insights into local demographics, trends, and hot spots to ensure maximum impact.</p>
+                    </div>
+                    <div class="grid-card fade-in-section" style="border-top-color: #bc8202;">
+                        <h3>Hyper-Targeted Campaigns</h3>
+                        <p>Precision targeting to reach your ideal audience, ensuring higher engagement and conversions.</p>
+                    </div>
+                    <div class="grid-card fade-in-section" style="border-top-color: #bc8202;">
+                        <h3>Trained Promoters & Logistics</h3>
+                        <p>Professional teams and seamless operational support for flawless execution every time.</p>
+                    </div>
+                    <div class="grid-card fade-in-section" style="border-top-color: #bc8202;">
+                        <h3>Real-time Analytics & Feedback</h3>
+                        <p>Data-driven insights and immediate feedback loops to optimize campaigns on the go.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="angled-divider-bottom"></div>
+        </section>
+
+    <section class="services-section" id="services">
+    <div class="container">
+        <h2 style="color: #1f311c;">What We Do</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Brand Activations</h3>
+                <p>Make your brand the talk of the town with bold, high-impact activations designed for attention and interaction.</p>
+            </div>
+            <div class="service-card">
+                <h3>College and Campus Engagements</h3>
+                <p>We reach the youth where they live, learn, and laugh. Games, giveaways, and giggles included.</p>
+            </div>
+            <div class="service-card">
+                <h3>Mall Promotions</h3>
+                <p>From flash mobs to pop-up stalls, captivate the crowd in high footfall zones.</p>
+            </div>
+            <div class="service-card">
+                <h3>Corporate Engagements</h3>
+                <p>Lunch-hour games, product demos, wellness challenges, we keep your brand top-of-mind for office-goers.</p>
+            </div>
+            <div class="service-card">
+                <h3>Tech-Integrated Activations</h3>
+                <p>AR, VR, gamification, digital check-ins, we fuse real with virtual to create unforgettable hybrid experiences.</p>
+            </div>
+            <div class="service-card">
+                <h3>Sampling and Product Trials</h3>
+                <p>Let people touch, taste, and test your product before they buy. It’s persuasion at its best.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="street-sales-section" id="street-sales">
+            <div class="inner-street-sales-block">
+                <div class="overlay"></div>
+                <div class="container">
+                    <h2 class="big-headline" style="color: #f9f9f9;">Where Marketing Meets Results</h2>
+                    <p class="description" style="color: #f4cc77;">We don’t just promote, we sell. Our on-ground teams are trained not just to engage but to convert, turning curious passersby into paying customers on the spot.</p>
+                    <div class="how-we-do-it-list">
+                        <div class="list-item">
+                            <span class="icon" style="color: #bc8202;">✔</span>
+                            <p>Trained sales promoters who know your product inside out</p>
+                        </div>
+                        <div class="list-item">
+                            <span class="icon" style="color: #bc8202;">✔</span>
+                            <p>Strategic high-footfall locations (metro stations, markets, colleges, streets)</p>
+                        </div>
+                        <div class="list-item">
+                            <span class="icon" style="color: #bc8202;">✔</span>
+                            <p>Branded stalls and mobile setups that grab attention</p>
+                        </div>
+                        <div class="list-item">
+                            <span class="icon" style="color: #bc8202;">✔</span>
+                            <p>Sampling with instant purchase incentives</p>
+                        </div>
+                        <div class="list-item">
+                            <span class="icon" style="color: #bc8202;">✔</span>
+                            <p>Live product demos and personal interaction</p>
+                        </div>
+                        <div class="list-item">
+                            <span class="icon" style="color: #bc8202;">✔</span>
+                            <p>Seamless digital payments (UPI, QR codes, POS machines)</p>
+                        </div>
+                        <div class="list-item">
+                            <span class="icon" style="color: #bc8202;">✔</span>
+                            <p>Real-time reporting and conversion data delivered daily</p>
+                        </div>
+                    </div>
+
+                    <p class="tagline" style="color:#f4cc77;">We don’t just create noise. We create numbers.</p>
+                    <div class="street-sales-ctas">
+                        <button class="cta-button primary-cta" style="background-color: #bc8202;">Let’s Activate Your Sales</button>
+                        <button class="cta-button secondary-cta" style="background-color: #bc8202; color: #f9f9f9;">Schedule a Free Demo Activation</button>
+                    </div>
+                </div>
+            </div> </section>
+
+        <section class="gallery-section" id="gallery">
+            <div class="container">
+                <h2 style="color: #1f311c;">Gallery</h2>
+                <div class="image-carousel">
+                    <div class="carousel-item">
+                        <img src="#" alt="Coming Soon ">
+                        <div class="overlay" style="background-color: rgba(188, 130, 2, 0.5);"></div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="#" alt="Coming Soon ">
+                        <div class="overlay" style="background-color: rgba(188, 130, 2, 0.5);"></div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="#" alt="Coming Soon ">
+                        <div class="overlay" style="background-color: rgba(188, 130, 2, 0.5);"></div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="#" alt="Coming Soon ">
+                        <div class="overlay" style="background-color: rgba(188, 130, 2, 0.5);"></div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="#" alt="Coming Soon ">
+                        <div class="overlay" style="background-color: rgba(188, 130, 2, 0.5);"></div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="#" alt="Coming Soon ">
+                        <div class="overlay" style="background-color: rgba(188, 130, 2, 0.5);"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+     <section class="case-studies-clients-section" id="case-studies">
+    <div class="glassmorphism-bg"></div>
+    <div class="container">
+        <h2 style="color: #1f311c;">Case Study/Clients</h2>
+        <button class="coming-soon-button">Coming Soon</button>
+    </div>
+</section>
+
+        <section class="contact-us-section" id="contact">
+            <div class="background-gradient"></div>
+            <div class="container">
+                <h2 style="color: #0c0c0c;">Want to activate your brand with us? Let’s talk.</h2>
+                <div class="contact-details-wrapper">
+                    <div class="contact-details">
+                        <p><strong>Office:</strong> [Address in Delhi]</p>
+                        <p><strong>Phone:</strong> [+91 XXXXX XXXXX]</p>
+                        <p><strong>Email:</strong> <a href="mailto:hello@yourstartupname.com">hello@yourstartupname.com</a></p>
+                        <p><strong>Website:</strong> <a href="https://www.yourstartupname.com">www.yourstartupname.com</a></p>
+
+                        <div class="social-media">
+                            <a href="#" class="social-icon" style="background-color: #bc8202;"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon" style="background-color: #bc8202;"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon" style="background-color: #bc8202;"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 StreetPulse. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+        </div>
+    </footer>
+  <script>
+   document.addEventListener('DOMContentLoaded', () => {
+    
+    const navbar = document.getElementById('navbar');
+    const menuToggle = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.navbar .nav-menu'); 
+    const navLinks = document.querySelectorAll('.navbar nav ul li a');
+    const logo = document.querySelector('.navbar .logo');
+    const toggleSpans = document.querySelectorAll('.navbar .menu-toggle span');
+
+
+   window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) { 
+        navbar.classList.add('scrolled'); 
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+    
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        menuToggle.classList.toggle('active'); 
+    });
+
+    
+    document.querySelectorAll('.menu-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
+        });
+    });
+
+    
+    const fadeInSections = document.querySelectorAll('.fade-in-section');
+
+    const observerOptions = {
+        root: null, 
+        rootMargin: '0px',
+        threshold: 0.1 
+    };
+
+    const sectionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target); 
+            }
+        });
+    }, observerOptions);
+
+    fadeInSections.forEach(el => {
+        sectionObserver.observe(el);
+    });
+
+    
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                const headerOffset = navbar.offsetHeight; 
+                const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                const offsetPosition = elementPosition - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
+  </script>
+ </body>
+</html>
